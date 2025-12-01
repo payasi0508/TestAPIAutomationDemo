@@ -18,11 +18,15 @@ public class MockSumValidation {
 		int count = js.getInt("courses.size()");
 		for(int i=0; i < count; i++) {
 			int price = js.get("courses["+i+"].price");
+			
 			int copies = js.get("courses["+i+"].copies");
 			
 			System.out.println("print the course price:- " + price +" => with respective copies:- " + copies);	
+			
 			int amount = price*copies;
+			
 			System.out.println("Total amount for copies of courses: " + amount);
+			
 			sum = sum + amount;
 		}	
 		

@@ -29,23 +29,27 @@ public class BookDetailsThroughDynamicJson {
 		.extract().response().asString();
 		
 		JsonPath js = JsonReusableMethods.rawToJson(response);
-		 id =js.get("ID");
+		
+		id =js.get("ID");
+		
 		String msg =js.get("Msg");
 		
 		System.out.println("Book ID: " + id);
 		System.out.println("Book added message: " + msg);
 		
 		getBookDetails(id);
+		
 		deleteBook(id);
 		
 	}
+	
 //  @Test	
 //	public void addBook() {
 //		
 //		RestAssured.baseURI = "http://216.10.245.166";
 //		
 //		String response = given().log().all().header("Content-Type", "application/json")
-//		.body(Payload.AddBook("adsefa","6587lo"))
+//		.body(Payload.AddBook("adsefc","65874"))
 //		.when().post("Library/Addbook.php")
 //		.then().log().all()
 //		.assertThat().statusCode(200)
@@ -63,17 +67,21 @@ public class BookDetailsThroughDynamicJson {
 	@DataProvider(name="BooksDetails")
 	public Object[][] getData() {
 		
-		return new Object[][] {{"adsefav","9524"}, {"adsefad","9254"}, {"adsefaa","9425"}};
+		return new Object[][] {{"adsefav","9527"}, {"adsefad","9258"}, {"adsefaa","9429"}};
 	}
 	
 	//Get the book details
 	public void getBookDetails(String id) {
-	String resp = given().log().all().queryParam("ID", id)
+	
+		String resp = given().log().all().queryParam("ID", id)
 			.when().get("Library/GetBook.php")
 			.then().log().all().assertThat().statusCode(200)
 			.extract().response().asString();
 			
 	System.out.println("Print the book details: " + resp);
+	
+	
+	
 	}
 	
 	//Delete the book

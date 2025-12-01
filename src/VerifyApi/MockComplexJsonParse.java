@@ -12,6 +12,7 @@ public class MockComplexJsonParse {
 		//1. print no of courses return by API
 		
 		int count = js.getInt("courses.size()");
+		
 		System.out.println("count the number of courses: " + count);
 		
 		//2. Print purches amount
@@ -21,7 +22,7 @@ public class MockComplexJsonParse {
 		
 		//3. Print title of the first courses
 		String titleFirstCourse = js.get("courses[2].title");
-		System.out.println("count the number of coursesTitle of first course: " + titleFirstCourse);
+		System.out.println("count the number of coursesTitle of third course: " + titleFirstCourse);
 		
 		//4. print all courses titles and their respective prices
 		
