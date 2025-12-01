@@ -16,7 +16,7 @@ public class BookDetailsThroughDynamicJson {
 	
 	public String id;
 	
-	@Test(dataProvider="BooksDetails")
+	@Test(dataProvider="BooksDetails" , groups = {"Test"})
 	public void addBook(String isbn, String aisle) {
 		
 		RestAssured.baseURI = "http://216.10.245.166";
